@@ -1,1 +1,1 @@
-print('Coucou')
+print('Coucou les amis')
