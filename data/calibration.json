@@ -1,0 +1,28 @@
+{
+    "LEFT_UP": {
+        "key": "1",
+        "good": 1.0,
+        "medium": 0.6,
+        "bad": 0.3
+    },
+    "RIGHT_UP": {
+        "key": "2",
+        "good": 1.0,
+        "medium": 0.6,
+        "bad": 0.3
+    },
+    "LEFT_SIDE": {
+        "key": "3",
+        "good": 1.0,
+        "medium": 0.6,
+        "bad": 0.3
+    },
+    "RIGHT_SIDE": {
+        "key": "4",
+        "good": 1.0,
+        "medium": 0.6,
+        "bad": 0.3
+    }
+}
+
+
