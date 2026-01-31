@@ -88,7 +88,11 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 **Role:**
 - Motion detection  
 - Sends an event when the bracelet moves  
-- Parameters configured on the ESP32  
+- Parameters configured on the ESP32
+
+### Global Electronic Architecture
+![Global electronic architecture](archi_projet_design.jpg)
+*Figure 1 – Global electronic architecture of one bracelet*
 
 ## Game Interface
 ## Issue and futur improvement
