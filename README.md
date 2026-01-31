@@ -19,7 +19,73 @@ here is a step by step guide on how to play :
 - launch the game (main.py) it will start to link withe the two devices, you should feel a vibration.
 - use the number on your keyboard to navigate on the menu to start a game.
 ## mitain/CAO
-## Electronic-Circuits
+
+## Electronics
+
+### Used Components
+
+#### XIAO ESP32S3 and XIAO ESP32C6
+
+**Datasheets:**
+- [Getting Started with Seeed Studio XIAO ESP32S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)
+- [Getting Started with Seeed Studio XIAO ESP32C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/)
+
+- Management of WiFi communication with the PC  
+- Reception of vibration commands  
+- Reading of motion data (accelerometer)  
+- Coordination between all I2C components (haptic driver, accelerometer)  
+- Each ESP32 is connected to the PC WiFi hotspot  
+
+---
+
+#### TCA9548A Multiplexer
+
+**Datasheet:**
+- [Low Voltage 8-Channel I2C Switch With Reset](https://cdn-shop.adafruit.com/datasheets/tca9548a.pdf)
+
+Two haptic drivers use the same I2C address.  
+A multiplexer is therefore required to differentiate them and avoid I2C bus conflicts.
+
+---
+
+#### HAPTIC DRIVER – DA7280
+
+**Datasheet:**
+- [Haptic Driver DA7280](https://cdn.sparkfun.com/assets/a/e/d/1/9/da7280_datasheet_3v0.pdf)
+
+**Library used:**
+- [GitHub – PatternAgents / Haptic_DA7280](https://github.com/PatternAgents/Haptic_DA7280/tree/master)
+
+- Generates and precisely controls vibrations  
+- Drives LRA motors  
+- Allows definition of waveforms, durations, and intensities  
+- Better haptic control than PWM  
+
+---
+
+#### LRA
+
+**Datasheet:**
+- [LRA HD-VA3222](https://api.puiaudio.com/filename/HD-VA3222.pdf)
+
+- Produces vibration  
+- Non-polarized motor  
+- Requires current peaks managed by the DA7280 driver  
+
+---
+
+#### Accelerometer
+
+**Datasheet:**
+- [Gravity: I2C LIS2DW12 Accelerometer](https://wiki.dfrobot.com/Gravity_I2C_LIS2DW12_Triple_Axis_Accelerometer_SKU_SEN0409)
+
+**Library used (recommended by the datasheet):**
+- [GitHub DFRobot / DFRobot_LIS](https://github.com/DFRobot/DFRobot_LIS)
+
+- Motion detection  
+- Sends an event when the bracelet moves  
+- Parameters configured on the ESP32  
+
 ## Game Interface
 ## Issue and futur improvement
 
