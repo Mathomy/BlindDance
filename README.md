@@ -24,12 +24,13 @@ here is a step by step guide on how to play :
 
 ### Used Components
 
-#### XIAO ESP32S3 and XIAO ESP32C6
+#### XIAO ESP32S3 + and XIAO ESP32C6
 
 **Datasheets:**
 - [Getting Started with Seeed Studio XIAO ESP32S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)
 - [Getting Started with Seeed Studio XIAO ESP32C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/)
 
+**Role:**
 - Management of WiFi communication with the PC  
 - Reception of vibration commands  
 - Reading of motion data (accelerometer)  
@@ -48,7 +49,7 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 
 ---
 
-#### HAPTIC DRIVER – DA7280
+#### Haptic Driver – DA7280
 
 **Datasheet:**
 - [Haptic Driver DA7280](https://cdn.sparkfun.com/assets/a/e/d/1/9/da7280_datasheet_3v0.pdf)
@@ -56,6 +57,7 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 **Library used:**
 - [GitHub – PatternAgents / Haptic_DA7280](https://github.com/PatternAgents/Haptic_DA7280/tree/master)
 
+**Role:**
 - Generates and precisely controls vibrations  
 - Drives LRA motors  
 - Allows definition of waveforms, durations, and intensities  
@@ -68,6 +70,7 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 **Datasheet:**
 - [LRA HD-VA3222](https://api.puiaudio.com/filename/HD-VA3222.pdf)
 
+**Role:**
 - Produces vibration  
 - Non-polarized motor  
 - Requires current peaks managed by the DA7280 driver  
@@ -82,6 +85,7 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 **Library used (recommended by the datasheet):**
 - [GitHub DFRobot / DFRobot_LIS](https://github.com/DFRobot/DFRobot_LIS)
 
+**Role:**
 - Motion detection  
 - Sends an event when the bracelet moves  
 - Parameters configured on the ESP32  
