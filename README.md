@@ -91,7 +91,7 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 - Parameters configured on the ESP32
 
 ### Global Electronic Architecture
-![Global electronic architecture](archi_projet_design.jpg)
+![Global electronic architecture](archi_projet_design.JPG)
 *Figure 1 – Global electronic architecture of one bracelet*
 
 ## Game Interface
