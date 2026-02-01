@@ -28,7 +28,7 @@ Note: The game has been implemented using royalty-free music. You can modify or 
 
 ## How to play
 Here is a step by step guide on how to play :
-- create a hotspot on your computer --> go on your parameter and search hotspot, then you need to adapt the esp32 code with the name of your hotspot and your password. You will see the devices connected on your hotspot and their ip adress (see [Electronic Circuits](#Electronic-Circuits) )
+- create a hotspot on your computer --> go on your parameter and search hotspot, then you need to adapt the esp32 code with the name of your hotspot and your password. You will see the devices connected on your hotspot and their ip adress. You need to ping the two device from your computer before launching the game.
 - wear the mitain, box upside, then power on the device, push the switch toward the back of the box.
 - enter the ip adress on the game file wifi_esp32.py, jeu.py and test_vibration.py (see [Game interface](#Game-Interface))
 - launch the game (main.py) it will start to link with the two devices, you should feel a vibration.
