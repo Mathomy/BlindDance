@@ -69,7 +69,7 @@ characteristic of the case :
 - Interior: H: **30 mm, W: 65 mm, L: 50 mm**
 - Exterior: **35 mm × 70 mm × 55 mm**
 - The screw are m2 or m3 depending on the precision of the 3d printer.
-- one hole for the wires, one for the usb c plug and on for the switch
+- one hole for the wires, one for the usb c plug and one for the switch
 
 Finally, we sewed the mittens, which (we think) ideally allow:
 
@@ -191,7 +191,7 @@ Several improvements can be made to the game. Here are the ones we identified du
 
 - Strengthen the external soldering of the LRA motors.
 
-- Improve access to the USB-C port (currently difficult for visually impaired users). maybe create the 3 holes in the CAO file.
+- Improve access to the USB-C port (currently difficult for visually impaired users). Maybe create the 3 holes in the CAO file.
 
 - Add Braille information on the case (on/off button, USB-C port, right/left hand).
 
