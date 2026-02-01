@@ -10,7 +10,7 @@ import requests
 IP_S3 = "http://192.168.137.71"
 IP_C6 = "http://192.168.137.116"
 
-# !!!!!! IP à changer en fonctiont des adresses des ESP32 sur le réseau local !!!!!!!
+# !!!!!! IP à changer en fonction des adresses des ESP32 sur le réseau local !!!!!!!
 
 requests.post(f"{IP_S3}/vibrate", data="1", timeout=1) # Envoie une vibration à l'ESP32 S3
 print("envoyé S3")
@@ -50,3 +50,4 @@ def tester_esp32():
         time.sleep(0.3)
 
     return tout_ok
+
