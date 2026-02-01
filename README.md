@@ -28,10 +28,10 @@ Note: The game has been implemented using royalty-free music. You can modify or 
 
 ## How to play
 Here is a step by step guide on how to play :
-- create a hotspot on your computer --> go on your parameter and search hotspot, then you need to adapt the esp32 code with the name of your hotspot and your password, you will see the device connected on your hotspot and their ip adress (see [Electronic Circuits] )
+- create a hotspot on your computer --> go on your parameter and search hotspot, then you need to adapt the esp32 code with the name of your hotspot and your password. You will see the devices connected on your hotspot and their ip adress (see [Electronic Circuits](#Electronic-Circuits) )
 - wear the mitain, box upside, then power on the device, push the switch toward the back of the box.
-- enter the ip adress on the game file wifi_esp32.py, jeu.py and test_vibration.py (see [Game Interface])
-- launch the game (main.py) it will start to link withe the two devices, you should feel a vibration.
+- enter the ip adress on the game file wifi_esp32.py, jeu.py and test_vibration.py (see [Game interface](#Game-Interface))
+- launch the game (main.py) it will start to link with the two devices, you should feel a vibration.
 - use the number on your keyboard to navigate on the menu to start a game.
 
 ## Game interface
@@ -40,25 +40,25 @@ The game interface is based on the Python library pyttsx3, which is used for tex
 
 Here the file organization:
 
-- **menu.py**: Manages the main game menu and presents the first choices to the player (start a game, quit, etc.).
+- [**menu.py**](/main.py): Manages the main game menu and presents the first choices to the player (start a game, quit, etc.).
 
-- **menu_musique.py**: Allows the player to choose the difficulty level and the music track. For each track, a 5-second audio preview is played to help the player make a choice.
+- [**menu_musique.py**](/menu_musique.py): Allows the player to choose the difficulty level and the music track. For each track, a 5-second audio preview is played to help the player make a choice.
 
-- **jeu.py** : Contains the main game logic: music analysis, vibration management, movement detection, score calculation, and vocal feedback to the player. The librosa library is used to analyze the music and extract beats. These beats are used as time references to trigger vibrations (1 vibration every 4 beats in this implementation).
+- [**jeu.py**](/jeu.py) : Contains the main game logic: music analysis, vibration management, movement detection, score calculation, and vocal feedback to the player. The librosa library is used to analyze the music and extract beats. These beats are used as time references to trigger vibrations (1 vibration every 4 beats in this implementation).
 The ANTICIPATION variable defines the anticipation time (in seconds) before the beat.
 The vibration is sent randomly to one of the two mittens, slightly before the musical beat to give the player time to react.
 After a vibration is sent, the game opens a time validation window (2 beats after the vibration, see the function verifier_mouvement) during which it checks whether a correct movement is detected by the ESP32 accelerometer.
 At the end of the music, the player’s score is calculated, and they earn between 1 and 3 stars depending on their performance.
 
-- **tts.py** : Contains the parler() function, which makes the text spoken by the voice synthesis.
+- [**tts.py**](/tts.py) : Contains the parler() function, which makes the text spoken by the voice synthesis.
 The voice speed can be adjusted by modifying the following value: _engine.setProperty('rate', 200)
 
-- **outils.py**: Groups utility functions used in the game:
+- [**outils.py**](/outils.py): Groups utility functions used in the game:
 stop(): quit the game
 repete(): repeat the instructions
 retour(): return to the previous menu
 
-- **audio.py**: Manages music playback and sound effects (success, error, star reward, etc.).
+- [**audio.py**](audio.py): Manages music playback and sound effects (success, error, star reward, etc.).
 
 
 ## Mitain/CAO
@@ -68,14 +68,15 @@ To secure the circuit, we designed a case in Fusion 360 and then 3D-printed it. 
 Dimensions of the case :
 - Interior: H: **30 mm, W: 65 mm, L: 50 mm**;
 - Exterior: **35 mm × 70 mm × 55 mm**
+the screw are m2 or m3 depending on the precision of the 3d printer. 
 
 Finally, we sewed the mittens, which (we think) ideally allow:
 
-- Easy wearing of the mittens
+- Easy wearing of the mittens.
 
-- LRA motors to be placed directly on the areas where vibrations are best felt (upper wrist + forearm muscle)
+- LRA motors to be placed directly on the areas where vibrations are best felt (upper wrist + forearm muscle).
 
-- Wireless use of the device (the mittens are long enough to fit the case with all the electronic components inside)
+- Wireless use of the device (the mittens are long enough to fit the case with all the electronic components inside).
 
 ## Electronics
 
@@ -144,8 +145,11 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 
 **Role:**
 - Motion detection  
-- Sends an event when the bracelet moves  
+- Sends an event when the bracelet moves
 - Parameters configured on the ESP32
+
+### Battery 
+ Because the LRA can use a lot of current, We choose "big" battery with 1000 and 800 mha. We believe that charging can be tedious for visually impaired people. so high autonomy -> no need to charge often. be careful, the accelerometer can fried if supplied directly by the battery ( current too high) for the LRA driver it is the opposite, the esp32 can't deliver enought current with the 3v3 output. 
 
 ### Global Electronic Architecture
 ![Global electronic architecture](archi_projet_design.JPG)
@@ -176,38 +180,41 @@ Several improvements can be made to the game. Here are the ones we identified du
 
 **Interface improvements**:
 
-- Allow interrupting the voice to respond immediately
+- Allow interrupting the voice to respond immediately.
 
-- Allow navigating between music tracks while previews are playing (useful when there are many tracks)
+- Allow navigating between music tracks while previews are playing (useful when there are many tracks).
 
-- Add game settings for a complete experience (volume, enable/disable success or failure sounds)
+- Add game settings for a complete experience (volume, enable/disable success or failure sounds).
 
 **Mittens and case:**
 
-- Strengthen the external soldering of the LRA motors
+- Strengthen the external soldering of the LRA motors.
 
-- Improve access to the USB-C port (currently difficult for visually impaired users)
+- Improve access to the USB-C port (currently difficult for visually impaired users).
 
-- Add Braille information on the case (on/off button, USB-C port, right/left hand)
+- Add Braille information on the case (on/off button, USB-C port, right/left hand).
 
 **Circuit:**
 
 - Add a battery level indicator
+- change the esp32 s3+ for a c6 for a more stable connexion. ( No informations found in datasheet about this issue. It is just an empirical observation, maybe the wifi antenna is dammaged)
 
 **Code:**
 
-- Switch from HTTP requests to sockets to reduce latency and allow faster vibration updates
+- Switch from HTTP requests to sockets to reduce latency and allow faster vibration updates.
+- detect vertical and horizontal movement instead of just a movement.
 
 **Gameplay:**
 
 - Add more movement
 
-- Add a “calibration” phase: before playing, ask the player to lift their arms in each direction to register a personalized movement validation window
+- Add a “calibration” phase: before playing, ask the player to lift their arms in each direction to register a personalized movement validation window --> Visually impaired people tend to make movement with less amplitude than sighted people.
 
 ## Contact us :
 
 - camelia.alitouche0@gmail.com
 - margot.porteneuve@gmail.com
+- tlamy80@gmail.com
 
 
 
