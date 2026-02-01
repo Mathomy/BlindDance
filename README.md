@@ -1,5 +1,5 @@
 # BlindDance
-A rythm game for blind people to play with.
+A rythm game for visually impaired people.
 
 # Table of Contents
 1. [Introduction](#Introduction)
@@ -147,6 +147,24 @@ A multiplexer is therefore required to differentiate them and avoid I2C bus conf
 ![Global electronic architecture](archi_projet_design.JPG)
 *Figure 1 – Global electronic architecture of one bracelet*
 
+### Embedded Code Overview
+
+The ESP32s connect to the PC using a WiFi hotspot.  
+Each ESP32 is assigned an IP address and communicates directly with the game running on the computer.
+
+Communication between the PC and the ESP32s is based on HTTP.  
+HTTP is a simple request–response protocol: the PC sends a request to the ESP32, the ESP32 executes the action and returns a response, then the connection is closed.
+
+Two main functionalities are handled by the embedded code:
+
+- **Vibration control**  
+  When an HTTP request is received, the ESP32 triggers a vibration by selecting the correct I2C channel and sending a waveform command to the haptic driver.
+
+- **Motion detection**  
+  The accelerometer continuously monitors movement.  
+  When a movement is detected, the ESP32 stores this information and sends it to the PC upon request.
+
+
 
 ## Issue and futur improvement
 
@@ -185,6 +203,7 @@ Several improvements can be made to the game. Here are the ones we identified du
 ## Contact us :
 
 - camelia.alitouche0@gmail.com
+- margot.porteneuve@gmail.com
 
 
 
