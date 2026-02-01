@@ -9,6 +9,7 @@ A rythm game for blind people to play with.
 5. [Electronic Circuits](#Electronic-Circuits)
 6. [Game Interface](#Game-Interface)
 7. [Issue and futur improvement](#Issue-and-futur-improvement)
+8. [Contact us](#Contact-us)
 
 
 ## Introduction
@@ -181,7 +182,9 @@ Several improvements can be made to the game. Here are the ones we identified du
 
 - Add a “calibration” phase: before playing, ask the player to lift their arms in each direction to register a personalized movement validation window
 
-## Contact :
+## Contact us :
+
+- camelia.alitouche0@gmail.com
 
 
 
