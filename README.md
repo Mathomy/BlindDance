@@ -65,6 +65,10 @@ retour(): return to the previous menu
 
 To secure the circuit, we designed a case in Fusion 360 and then 3D-printed it. Openings were made for the USB-C port and for the wires of the LRA actuators and the battery. Finally, an on/off button was added on the top of the case.
 
+Dimensions of the case :
+- Interior: H: **30 mm, W: 65 mm, L: 50 mm**;
+- Exterior: **35 mm × 70 mm × 55 mm**
+
 Finally, we sewed the mittens, which (we think) ideally allow:
 
 - Easy wearing of the mittens
