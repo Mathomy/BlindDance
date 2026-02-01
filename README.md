@@ -4,10 +4,11 @@ A rythm game for blind people to play with.
 # Table of Contents
 1. [Introduction](#Introduction)
 2. [How to play](#How-to-play)
-3. [mitain/CAO](#mitain/CAO)
-4. [Electronic Circuits](#Electronic-Circuits)
-5. [Game Interface](#Game-Interface)
-6. [Issue and futur improvement](#Issue-and-futur-improvement)
+3. [Game interface](#Game-interface)
+4. [mitain/CAO](#mitain/CAO)
+5. [Electronic Circuits](#Electronic-Circuits)
+6. [Game Interface](#Game-Interface)
+7. [Issue and futur improvement](#Issue-and-futur-improvement)
 
 
 ## Introduction
